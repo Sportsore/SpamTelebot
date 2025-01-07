@@ -73,14 +73,14 @@
   </style>
 </head>
 <body>
-  <h1>أداة إرسال رسائل تيليجرام</h1>
+  <h1>أداة اسبام بوتات رسائل مزعجة</h1>
   <input type="text" id="token" placeholder="أدخل التوكن الخاص بالبوت">
   <input type="text" id="chat_id" placeholder="أدخل معرف الشات">
   <input type="text" id="message" placeholder="أدخل الرسالة">
-  <input type="number" id="threads" placeholder="عدد الرسائل المطلوب إرسالها" min="1" max="1000">
-  <button id="start">ابدأ الإرسال</button>
+  <input type="number" id="threads" placeholder="عدد الاسبام المطلوب ارساله" min="1" max="1000">
+  <button id="start">ابدأ الاسبام</button>
   <div id="status"></div>
-  <div id="counter">عدد الرسائل المرسلة: 0</div>
+  <div id="counter">عدد الاسبام المرسل: 0</div>
   <footer>
     تصميم بواسطة <a href="https://t.me/caser7" target="_blank">telegram:caser7</a>
   </footer>
@@ -101,16 +101,16 @@
       const counterDiv = document.getElementById('counter');
       let sentCount = 0;
 
-      statusDiv.innerHTML = 'تم بدء الإرسال...';
+      statusDiv.innerHTML = 'تم بدء الاسبام...';
 
       for (let i = 0; i < threads; i++) {
         fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}`)
           .then(response => {
             if (response.ok) {
               sentCount++;
-              counterDiv.innerHTML = `عدد الرسائل المرسلة: ${sentCount}`;
+              counterDiv.innerHTML = `عدد الاسبام المرسله: ${sentCount}`;
               if (sentCount === threads) {
-                statusDiv.innerHTML = 'تم إرسال جميع الرسائل بنجاح!';
+                statusDiv.innerHTML = 'تم إرسال جميع الاسبام بنجاح!';
               }
             } else {
               statusDiv.innerHTML = 'فشل في إرسال الرسالة. تحقق من التوكن أو معرف الشات.';
